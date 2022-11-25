@@ -22,7 +22,7 @@ namespace API.Infrastructure.Implements
             return await _context.Products.FindAsync(id);
         }
         /// <summary>
-        /// tüm product listeler
+        /// all product list
         /// </summary>
         /// <returns></returns>
         public async Task<IReadOnlyList<Product>> GetProductsAsync()
