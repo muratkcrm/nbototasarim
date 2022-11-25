@@ -9,6 +9,10 @@ namespace API.Core.Interfaces
     public interface IProductRepository
     {
         Task<Product> GetProductByIdAsync(int id);
-        Task<IReadOnlyList<Product>> GetAllProductsAsync();
+        /// <summary>
+        /// all product list
+        /// </summary>
+        /// <returns></returns>
+        Task<IReadOnlyList<Product>> GetProductsAsync();
     }
 }

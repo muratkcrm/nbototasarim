@@ -1,7 +1,10 @@
 ﻿using API.Core.DbModels;
 using API.Core.Interfaces;
+using API.Infrastructure.DataContext;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,14 +12,24 @@ namespace API.Infrastructure.Implements
 {
     public class ProductRepository : IProductRepository
     {
-        public Task<IReadOnlyList<Product>> GetAllProductsAsync()
+        private readonly StoreContext _context;
+        public ProductRepository(StoreContext context) 
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public async Task<Product> GetProductByIdAsync(int id)
+        {
+            return await _context.Products.FindAsync(id);
+        }
+        /// <summary>
+        /// tüm product listeler
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IReadOnlyList<Product>> GetProductsAsync()
+        {
+            return await _context.Products.ToListAsync();
         }
 
-        public Task<Product> GetProductByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }
