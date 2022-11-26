@@ -2,10 +2,7 @@
 using API.Core.Interfaces;
 using API.Infrastructure.DataContext;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace API.Infrastructure.Implements
@@ -17,9 +14,18 @@ namespace API.Infrastructure.Implements
         {
             _context = context;
         }
+
+        public async Task<IReadOnlyList<ProductBrands>> GetProductBrandsAsync()
+        {
+            return await _context.ProductBrands.ToListAsync();
+        }
+
         public async Task<Product> GetProductByIdAsync(int id)
         {
-            return await _context.Products.FindAsync(id);
+            return await _context.Products
+                .Include(p => p.ProductBrands)
+                .Include(p => p.ProductTypes)
+                .FirstOrDefaultAsync(p=> p.Id == id);
         }
         /// <summary>
         /// all product list
@@ -27,9 +33,15 @@ namespace API.Infrastructure.Implements
         /// <returns></returns>
         public async Task<IReadOnlyList<Product>> GetProductsAsync()
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Products
+                .Include(p => p.ProductBrands)
+                .Include(p => p.ProductTypes)
+                .ToListAsync();
         }
 
-
+        public async Task<IReadOnlyList<ProductTypes>> GetProductTypesAsync()
+        {
+            return await _context.ProductTypes.ToListAsync();
+        }
     }
 }

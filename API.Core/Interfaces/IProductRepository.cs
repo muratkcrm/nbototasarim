@@ -14,5 +14,7 @@ namespace API.Core.Interfaces
         /// </summary>
         /// <returns></returns>
         Task<IReadOnlyList<Product>> GetProductsAsync();
+        Task<IReadOnlyList<ProductTypes>> GetProductTypesAsync();
+        Task<IReadOnlyList<ProductBrands>> GetProductBrandsAsync();
     }
 }

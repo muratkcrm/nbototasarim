@@ -13,5 +13,10 @@ namespace API.Infrastructure.DataContext
 
         }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductTypes> ProductTypes { get; set; }
+        public DbSet<ProductBrands> ProductBrands { get; set; }
+
+
+
     }
 }
