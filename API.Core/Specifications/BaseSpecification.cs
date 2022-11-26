@@ -6,10 +6,13 @@ namespace API.Core.Specifications
 {
     public class BaseSpecification<T> : ISpecification<T>
     {
-        public BaseSpecification(Expression<Func<T, bool>> criteria, List<Expression<Func<T, object>>> ıncludes)
+        public BaseSpecification() 
+        {
+        }
+
+        public BaseSpecification(Expression<Func<T, bool>> criteria)
         {
             Criteria = criteria;
-            Includes = ıncludes;
         }
 
         public Expression<Func<T, bool>> Criteria { get; }
