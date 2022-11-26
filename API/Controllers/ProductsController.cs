@@ -1,6 +1,7 @@
 ﻿using API.Core.DbModels;
 using API.Core.Interfaces;
 using API.Core.Specifications;
+using API.Dtos;
 using API.Infrastructure.DataContext;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -29,11 +30,23 @@ namespace API.Controllers
         }
 
                 [HttpGet]
-        public async Task<ActionResult<List<Product>>> GetProducts()
+        public async Task<ActionResult<List<ProductToReturnDto>>> GetProducts()
         {
             var spec = new ProductsWithProductTypeAndBrandsSpecification();
             var data = await _productRepository.ListAsync(spec);
-            return Ok(data);
+            //return Ok(data);
+
+            return data.Select(pro => new ProductToReturnDto 
+            {
+                Id= pro.Id,
+                Name= pro.Name,
+                Description= pro.Description,
+                Category= pro.Category,
+                PictureUrl= pro.PictureUrl,
+                Price= pro.Price,
+                ProductBrand = pro.ProductBrand != null ? pro.ProductBrand.Name : string.Empty,
+                ProductType = pro.ProductType != null ? pro.ProductType.Name : string.Empty,
+            }).ToList();
         }
         
         [HttpGet("{id}")]
