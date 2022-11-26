@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Google.Api.Ads.AdWords.v201809;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
+using Windows.ApplicationModel.Store;
 
 namespace API.Core.DbModels
 {
@@ -12,9 +14,9 @@ namespace API.Core.DbModels
         [Column(TypeName = "decimal(18,2)")]
         public decimal? Price { get; set; }
         public string PictureUrl { get; set; }
-        public int ProductTypesId { get; set; }
-        public int ProductBrandsId { get; set;}
-        public ProductBrands ProductBrands { get; set; }
-        public ProductTypes ProductTypes { get; set; }
+        public int ProductTypeId { get; set; }
+        public int ProductBrandId { get; set;}
+        public ProductBrand ProductBrand { get; set; }
+        public ProductType ProductType { get; set; }
     }
 }

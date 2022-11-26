@@ -15,17 +15,17 @@ namespace API.Infrastructure.Implements
             _context = context;
         }
 
-        public async Task<IReadOnlyList<ProductBrands>> GetProductBrandsAsync()
+        public async Task<IReadOnlyList<ProductBrand>> GetProductBrandsAsync()
         {
-            return await _context.ProductBrands.ToListAsync();
+            return await _context.ProductBrand.ToListAsync();
         }
 
         public async Task<Product> GetProductByIdAsync(int id)
         {
             return await _context.Products
-                .Include(p => p.ProductBrands)
-                .Include(p => p.ProductTypes)
-                .FirstOrDefaultAsync(p=> p.Id == id);
+                .Include(x => x.ProductType)
+                .Include(x => x.ProductBrand)
+                .FirstOrDefaultAsync(p => p.Id == id);
         }
         /// <summary>
         /// all product list
@@ -34,14 +34,14 @@ namespace API.Infrastructure.Implements
         public async Task<IReadOnlyList<Product>> GetProductsAsync()
         {
             return await _context.Products
-                .Include(p => p.ProductBrands)
-                .Include(p => p.ProductTypes)
+                .Include(x => x.ProductType)
+                .Include(x => x.ProductBrand)
                 .ToListAsync();
         }
 
-        public async Task<IReadOnlyList<ProductTypes>> GetProductTypesAsync()
+        public async Task<IReadOnlyList<ProductType>> GetProductTypesAsync()
         {
-            return await _context.ProductTypes.ToListAsync();
+            return await _context.ProductType.ToListAsync();
         }
     }
 }
