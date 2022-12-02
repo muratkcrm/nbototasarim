@@ -20,5 +20,28 @@ namespace API.Controllers
             }
             return Ok();
         }
+        [HttpGet("servererror")]
+        public ActionResult GetServerError()
+        {
+            var product = _context.Products.Find(5);
+            var productToReturn = product.ToString();
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return Ok();
+        }
+        [HttpGet("badrequest")]
+        public ActionResult GetBadRequest()
+        {
+            return BadRequest();
+        }
+
+        [HttpGet("badrequest/{id}")]
+        public ActionResult GetNotFoundRequest(int id)
+        {
+            return Ok();
+        }
+
     }
 }
