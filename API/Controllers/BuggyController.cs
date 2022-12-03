@@ -17,7 +17,7 @@ namespace API.Controllers
             var product = _context.Products.Find(5);
             if (product == null)
             {
-                return NotFound();
+                return NotFound(new ApiResponse(404));
             }
             return Ok(new ApiResponse(404));
         }
@@ -25,10 +25,10 @@ namespace API.Controllers
         public ActionResult GetServerError()
         {
             var product = _context.Products.Find(5);
-            var productToReturn = product.ToString();
+            //var productToReturn = product.ToString();
             if (product == null)
             {
-                return NotFound();
+                return NotFound(new ApiResponse(500));
             }
             return Ok(new ApiResponse(500));
         }

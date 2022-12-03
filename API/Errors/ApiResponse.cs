@@ -1,4 +1,5 @@
 ﻿using System;
+using API.Errors;
 
 namespace API.Errors
 {
