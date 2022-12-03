@@ -1,4 +1,5 @@
-﻿using API.Infrastructure.DataContext;
+﻿using API.Errors;
+using API.Infrastructure.DataContext;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -18,7 +19,7 @@ namespace API.Controllers
             {
                 return NotFound();
             }
-            return Ok();
+            return Ok(new ApiResponse(401));
         }
         [HttpGet("servererror")]
         public ActionResult GetServerError()
@@ -29,18 +30,18 @@ namespace API.Controllers
             {
                 return NotFound();
             }
-            return Ok();
+            return Ok(new ApiResponse(500));
         }
         [HttpGet("badrequest")]
         public ActionResult GetBadRequest()
         {
-            return BadRequest();
+            return BadRequest(new ApiResponse(404));
         }
 
         [HttpGet("badrequest/{id}")]
         public ActionResult GetNotFoundRequest(int id)
         {
-            return Ok();
+            return Ok(new ApiResponse(400));
         }
 
     }
