@@ -19,7 +19,7 @@ namespace API.Controllers
             {
                 return NotFound();
             }
-            return Ok(new ApiResponse(401));
+            return Ok(new ApiResponse(404));
         }
         [HttpGet("servererror")]
         public ActionResult GetServerError()
@@ -35,7 +35,7 @@ namespace API.Controllers
         [HttpGet("badrequest")]
         public ActionResult GetBadRequest()
         {
-            return BadRequest(new ApiResponse(404));
+            return BadRequest(new ApiResponse(401));
         }
 
         [HttpGet("badrequest/{id}")]
