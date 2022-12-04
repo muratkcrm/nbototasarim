@@ -25,7 +25,7 @@ namespace API.Controllers
         public ActionResult GetServerError()
         {
             var product = _context.Products.Find(5);
-            //var productToReturn = product.ToString();
+            var productToReturn = product.ToString();
             if (product == null)
             {
                 return NotFound(new ApiResponse(500));
