@@ -20,4 +20,8 @@
     <PackageReference Include="Uno.UI" Version="4.6.19" />
   </ItemGroup>
 
+  <ItemGroup>
+    <SourceGeneratorInput Remove="Specifications\ProductSpecParams.cs" />
+  </ItemGroup>
+
 </Project>

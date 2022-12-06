@@ -8,17 +8,17 @@ namespace API.Core.Specifications
 {
     public class ProductsWithProductTypeAndBrandsSpecification : BaseSpecification<Product>
     {
-        public ProductsWithProductTypeAndBrandsSpecification(string sort, int? brandId, int? typeId)
-            :base (x=> (!brandId.HasValue || x.ProductBrandId == brandId)
+        public ProductsWithProductTypeAndBrandsSpecification(ProductSpecParams productSpecParams)
+            :base (x=> (!productSpecParams.BrandId.HasValue || x.ProductBrandId == productSpecParams.BrandId)
             &&
-            (!typeId.HasValue || x.ProductTypeId == typeId))
+            (!productSpecParams.TypeId.HasValue || x.ProductTypeId == productSpecParams.TypeId))
         {
             AddInclude(x => x.ProductBrand);
             AddInclude(x => x.ProductType);
             //AddOrderBy(x => x.Name);
-            if (!string.IsNullOrWhiteSpace(sort)) 
+            if (!string.IsNullOrWhiteSpace(productSpecParams.Sort)) 
             {
-                switch(sort) 
+                switch(productSpecParams.Sort) 
                 {
                     case "priceAsc":
                         AddOrderBy(x => x.Price);
