@@ -43,5 +43,9 @@ namespace API.Infrastructure.Implements
         {
             return await _context.ProductType.ToListAsync();
         }
+        public async Task<IReadOnlyList<ProductBrand>> GetProductBrandAsync()
+        {
+            return await _context.ProductBrand.ToListAsync();
+        }
     }
 }
