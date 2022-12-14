@@ -1,0 +1,9 @@
+ng g m shop   //komut yazarsan shop adında modul oluşturur. ts dosyalarını oluşturur.
+
+ng g c shop --flat --skip-tests   // komut yazarsan shop altındaki modul  dosyalarını oluşturur . ts component, html ve css dosyalarını
+
+ng g s shop --skip-tests --flat  // verileri getirip götürecek servis oluşturmak
+
+ng g m shop-routing --flat  // verilerin routing edilmesi
+
+ng serve  // komutu server ayağa kaldırır.
