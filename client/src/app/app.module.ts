@@ -1,3 +1,4 @@
+import { ShopModule } from './shop/shop.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
@@ -20,6 +21,7 @@ import { CoreModule } from './core/core.module';
         NgbModule,
         HttpClientModule,
         CoreModule,
+        ShopModule
     ]
 })
 export class AppModule { }

@@ -1,7 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { IPagination } from './shared/models/IPagination';
-import { IProduct } from './shared/models/IProduct';
 
 @Component({
   selector: 'app-root',
@@ -9,18 +6,16 @@ import { IProduct } from './shared/models/IProduct';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'E-Ticaret';
-  products! :IProduct[];
+  title = 'NB Oto Tasarim';
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
   ngOnInit(): void {
-    this.http.get<any>('https://localhost:44338/api/products').subscribe((response: IPagination) => {
+    // this.http.get<any>('https://localhost:44338/api/products').subscribe((response: IPagination) => {
 
-      //this.products = response.data;
-      this.products = response.data;
+    //   this.products = response.data;
 
-    }, error => {
-      console.log(error);
-    });
+    // }, error => {
+    //   console.log(error);
+    // });
   }
 }
