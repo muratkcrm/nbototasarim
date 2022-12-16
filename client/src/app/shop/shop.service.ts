@@ -9,9 +9,9 @@ export class ShopService {
 
   baseUrl = "https://localhost:44338/api/";
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getProducts(){
-    return this.http.get<IPagination>(this.baseUrl+'Products');
+  getProducts() {
+    return this.http.get<IPagination>(this.baseUrl + 'Products');
   }
 }
