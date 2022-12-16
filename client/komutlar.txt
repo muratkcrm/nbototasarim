@@ -1,3 +1,27 @@
+dizini aç ve içine gir 
+
+- dotnet new webapi -o API
+
+- dotnet new sln
+
+- dotnet sln add API
+
+-*-*-*-*-*-*-*-* angular ----
+
+- npm install -g @angular/cli
+
+- ng new "proje ismi"
+
+- npm install bootstrap@5.2.3
+
+- ng add ngx-bootstrap
+
+- npm install ngx-bootstrap --save
+
+-ng g c nav-bar --skip-tests
+
+*-*-*-*-*-*-*-*-*-
+
 ng g m shop   //komut yazarsan shop adında modul oluşturur. ts dosyalarını oluşturur.
 
 ng g c shop --flat --skip-tests   // komut yazarsan shop altındaki modul  dosyalarını oluşturur . ts component, html ve css dosyalarını
