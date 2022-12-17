@@ -22,5 +22,10 @@
     <ProjectReference Include="..\API.Infrastructure\API.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\images\products\1.png" />
+    <None Include="wwwroot\images\products\2021-10-24.jpg" />
+  </ItemGroup>
+
 
 </Project>
