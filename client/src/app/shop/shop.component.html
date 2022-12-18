@@ -8,15 +8,15 @@
                 <option>Fiyatı : Öncelikle Yüksek Fiyatlar</option>
 
             </select>
-
+            <h5 class="ml-3">Kategori</h5>
+            <ul class="list-group my-3">
+                <li class="list-group-item " *ngFor="let type of types">{{type.name}}</li>
+            </ul>
             <h5 class="text-muted ml-3">Markalar</h5>
             <ul class="list-group my-3">
                 <li class="list-group-item" *ngFor="let brand of brands">{{brand.name}}</li>
             </ul>
-            <h5 class="ml-3">Kategori</h5>
-            <ul class="list-group my-3">
-                <li class="list-group-item " *ngFor="let type of types" >{{type.name}}</li>
-            </ul>
+
         </section>
         <section class="col-9">
 
