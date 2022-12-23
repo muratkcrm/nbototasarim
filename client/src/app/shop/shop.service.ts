@@ -15,31 +15,31 @@ export class ShopService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(brandId? : number, typeId? : number) {
+  getProducts(brandId?: number, typeId?: number) {
 
     let params = new HttpParams();
 
-    if(brandId){
+    if (brandId) {
       params = params.append('brandId', brandId.toString());
     }
 
-    if(typeId){
-      params = params.append('typeId',typeId.toString());
+    if (typeId) {
+      params = params.append('typeId', typeId.toString());
     }
 
-    return this.http.get<IPagination>(this.baseUrl + 'Products', {observe: 'response', params})
-    .pipe(
-        map(response =>{
-          return Response.body;
+    return this.http.get<IPagination>(this.baseUrl + 'Products', { observe: 'response', params })
+      .pipe(
+        map(response => {
+          return response.body;
         })
       );
   }
 
-  getBrands(){
+  getBrands() {
     return this.http.get<IProductBrand[]>(this.baseUrl + 'Products/Brands');
   }
 
-  getTypes(){
+  getTypes() {
     return this.http.get<IProductType[]>(this.baseUrl + 'Products/Types');
   }
 }

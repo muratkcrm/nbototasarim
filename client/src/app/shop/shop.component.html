@@ -8,13 +8,22 @@
                 <option>Fiyatı : Öncelikle Yüksek Fiyatlar</option>
 
             </select>
-            <h5 class="ml-3">Kategori</h5>
+            <h5 class="text-warning ml-3">Kategori</h5>
             <ul class="list-group my-3">
-                <li class="list-group-item " *ngFor="let type of types">{{type.name}}</li>
+                <li class="list-group-item" *ngFor="let type of types"
+                [class.activate] = "type.id === this.brandIdSelected"
+                [value]="type.id"
+                (click)="onBrandSelected(type.id)">                  
+                {{type.name}}
+                </li>
             </ul>
             <h5 class="text-muted ml-3">Markalar</h5>
             <ul class="list-group my-3">
-                <li class="list-group-item" *ngFor="let brand of brands">{{brand.name}}</li>
+                <li class="list-group-item" *ngFor="let brand of brands"
+                    [class.activate] = "brand.id === this.brandIdSelected"
+                    [value]="brand.id"
+                    (click)="onTypeSelected(brand.id)">    
+                {{brand.name}}</li>
             </ul>
 
         </section>
