@@ -4,6 +4,7 @@ using API.Infrastructure.DataContext;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Windows.System;
 
 namespace API.Infrastructure.Implements
 {
@@ -47,5 +48,28 @@ namespace API.Infrastructure.Implements
         {
             return await _context.ProductBrand.ToListAsync();
         }
+
+        Task<Product> IProductRepository.GetProductByIdAsync(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        Task<IReadOnlyList<Product>> IProductRepository.GetProductsAsync()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        Task<IReadOnlyList<ProductType>> IProductRepository.GetProductTypesAsync()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        Task<IReadOnlyList<ProductBrand>> IProductRepository.GetProductBrandsAsync()
+        {
+            throw new System.NotImplementedException();
+        }
+
+
+
     }
 }

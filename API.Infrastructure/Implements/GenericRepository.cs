@@ -45,5 +45,6 @@ namespace API.Infrastructure.Implements
         {
             return await ApplySpecification(spec).CountAsync();
         }
+
     }
 }

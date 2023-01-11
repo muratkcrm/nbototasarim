@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Windows.System;
 
 namespace API.Controllers
 {
@@ -23,9 +24,11 @@ namespace API.Controllers
         private readonly IGenericRepository<ProductType> _productTypeRepository;
 
         private readonly IMapper _mapper;
+
         public ProductsController(IGenericRepository<Product> productRepository, 
-            IGenericRepository<ProductBrand> productBrandRepository, 
-            IGenericRepository<ProductType> productTypeRepository, IMapper mapper)
+            IGenericRepository<ProductBrand> productBrandRepository,
+            IGenericRepository<ProductType> productTypeRepository,
+            IMapper mapper)
         {
             _productRepository = productRepository;
             _productBrandRepository = productBrandRepository;
@@ -65,5 +68,6 @@ namespace API.Controllers
             var data = await _productTypeRepository.ListAllAsync();
             return Ok(data);
         }
+
     }
 }
