@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace API.Core.DbModels
+namespace API.Dtos
 {
-    internal class User: BaseEntity
+    public class UserToReturnDto
     {
         [Key]
         public int Id { get; set; }
