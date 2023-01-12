@@ -9,6 +9,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -30,13 +31,13 @@ namespace API.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<UserApi>>> GetUsers()
+        public async Task<ActionResult<IReadOnlyList<UserApi>>> GetUser()
         {
             var data = await _userRepository.ListAllAsync();
             return Ok(data);
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserApi>> GetUsers(int id)
+        public async Task<ActionResult<UserApi>> GetUser(int id)
         {
             var data = await _userRepository.GetByIdAsync(id);
             return Ok(data);
