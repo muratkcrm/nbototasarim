@@ -22,17 +22,20 @@ namespace API.Controllers
         private readonly IGenericRepository<Product> _productRepository;
         private readonly IGenericRepository<ProductBrand> _productBrandRepository;
         private readonly IGenericRepository<ProductType> _productTypeRepository;
+        private readonly IGenericRepository<UserApi> _userRepository;
 
         private readonly IMapper _mapper;
 
         public ProductsController(IGenericRepository<Product> productRepository, 
             IGenericRepository<ProductBrand> productBrandRepository,
+            IGenericRepository<UserApi> userRepository,
             IGenericRepository<ProductType> productTypeRepository,
             IMapper mapper)
         {
             _productRepository = productRepository;
             _productBrandRepository = productBrandRepository;
             _productTypeRepository = productTypeRepository;
+            _userRepository = userRepository;
             _mapper = mapper;
         }
 
@@ -68,6 +71,11 @@ namespace API.Controllers
             var data = await _productTypeRepository.ListAllAsync();
             return Ok(data);
         }
+        //[HttpGet("Users")]
+        //public async Task<ActionResult<IReadOnlyList<UserApi>>> GetUsers() { 
+        //    var data = await _userRepository.ListAllAsync();
+        //    return Ok(data);
+        //}
 
     }
 }
