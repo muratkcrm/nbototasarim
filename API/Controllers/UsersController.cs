@@ -35,5 +35,11 @@ namespace API.Controllers
             var data = await _userRepository.ListAllAsync();
             return Ok(data);
         }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserApi>> GetUsers(int id)
+        {
+            var data = await _userRepository.GetByIdAsync(id);
+            return Ok(data);
+        }
     }
 }
